@@ -7,6 +7,7 @@ const translations = {
     // Header
     title: 'Signal',
     subtitle: 'AI-Powered Crypto Trading Assistant',
+    newAnalysis: 'New Analysis',
 
     // Intro
     introTitle: 'Professional Trading Analysis',
@@ -91,6 +92,7 @@ const translations = {
     // Header
     title: 'Signal',
     subtitle: 'AI 加密货币交易决策系统',
+    newAnalysis: '新分析',
 
     // Intro
     introTitle: '专业交易分析',
