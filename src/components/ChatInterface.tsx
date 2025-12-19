@@ -286,10 +286,10 @@ export function ChatInterface({ activeAnalysis, onStartAnalysis }: ChatInterface
         <div className="border-t border-border bg-card">
           <div className="max-w-4xl mx-auto px-4 md:px-6 py-4">
             <div
-              className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
+              className={`border-2 border-dashed rounded-lg p-8 text-center transition-all duration-200 cursor-pointer ${
                 isDragging
-                  ? 'border-primary bg-primary/5'
-                  : 'border-border hover:border-primary/50'
+                  ? 'border-primary bg-primary/10'
+                  : 'border-border hover:border-primary hover:bg-primary/5'
               }`}
               onDrop={handleDrop}
               onDragOver={(e) => {
