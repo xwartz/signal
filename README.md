@@ -56,18 +56,76 @@ pnpm build
 
 ### 5. 部署到 Vercel
 
+#### 方式一：通过 Vercel Dashboard（推荐）
+
+1. **导入项目**
+   - 访问 [Vercel Dashboard](https://vercel.com/new)
+   - 选择你的 GitHub 仓库
+   - 点击 Import
+
+2. **配置环境变量**（重要！）
+   - 在项目设置中，进入 **Settings → Environment Variables**
+   - 添加以下环境变量：
+     ```
+     Name: OPENROUTER_API_KEY
+     Value: 你的 OpenRouter API Key
+     ```
+   - 选择所有环境：**Production**, **Preview**, **Development**
+   - 点击 Save
+
+3. **重新部署**
+   - 返回 **Deployments** 页面
+   - 点击最新部署右侧的 **⋯** 菜单
+   - 选择 **Redeploy**
+
+#### 方式二：通过 Vercel CLI
+
 ```bash
 # 安装 Vercel CLI
 npm i -g vercel
+
+# 登录
+vercel login
 
 # 部署
 vercel
 
 # 配置环境变量
-vercel env add OPENROUTER_API_KEY
+vercel env add OPENROUTER_API_KEY production
+vercel env add OPENROUTER_API_KEY preview
+vercel env add OPENROUTER_API_KEY development
+
+# 重新部署以应用环境变量
+vercel --prod
 ```
 
-或直接在 Vercel Dashboard 中导入 GitHub 仓库。
+#### 部署后验证
+
+部署完成后，访问你的 Vercel 域名（如 `https://your-app.vercel.app`），上传一张交易图表测试 API 是否正常工作。
+
+#### 常见问题排查
+
+**问题：API 返回 500 错误**
+
+解决方案：
+1. 检查 Vercel Dashboard 中是否正确配置了 `OPENROUTER_API_KEY` 环境变量
+2. 确保环境变量已应用到所有环境（Production/Preview/Development）
+3. 重新部署项目以应用环境变量更改
+4. 查看 Vercel 的 **Functions** 日志，检查具体错误信息
+
+**问题：环境变量未生效**
+
+解决方案：
+1. 环境变量修改后必须重新部署才能生效
+2. 确保变量名正确：`OPENROUTER_API_KEY`（不带 `VITE_` 前缀）
+3. 检查是否选择了正确的环境（Production/Preview/Development）
+
+**问题：本地开发正常，部署后失败**
+
+解决方案：
+1. 本地使用 `VITE_OPENROUTER_API_KEY`（带前缀）
+2. Vercel 部署使用 `OPENROUTER_API_KEY`（不带前缀）
+3. 这是因为 Vite 环境变量和 Vercel Serverless Functions 环境变量的命名规则不同
 
 ## 📖 使用指南
 

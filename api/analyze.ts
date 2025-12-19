@@ -6,7 +6,7 @@ import type {
   Binance24hrTicker,
   RealtimeData,
   TradingDecision,
-} from '../src/types'
+} from './types'
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // 仅支持 POST 请求
