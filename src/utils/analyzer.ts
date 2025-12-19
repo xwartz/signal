@@ -142,8 +142,8 @@ async function analyzeImageWithAI(
       },
       body: JSON.stringify({
         model: localStorage.getItem('openrouter_api_key')
-          ? "anthropic/claude-3.5-sonnet"
-          : "gpt-4-vision-preview",
+          ? "google/gemini-3-flash-preview"
+          : "openai/gpt-5.2-pro",
         messages: [
           {
             role: "user",
