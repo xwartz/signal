@@ -8,19 +8,27 @@ import type {
 // 开发环境的分析函数（客户端运行）
 export async function analyzeImage(image: string): Promise<AnalyzeResponse> {
   try {
-    // Step 1: AI image analysis (including technical indicators)
-    const imageAnalysis = await analyzeImageWithAI(image)
-
-    // Step 2: Fetch real-time market data (parallel - all from Binance API)
+    // Step 1: Pre-fetch real-time market data for BTC (Default)
+    // We assume BTC first to speed up the process while AI is analyzing
+    const defaultSymbol = 'BTCUSDT'
     const [realtimeData, fundingRateData, openInterestData] = await Promise.all(
       [
-        fetchBinanceSpotData(imageAnalysis.detected.symbol),
-        fetchBinanceFundingRate(imageAnalysis.detected.symbol),
-        fetchBinanceOpenInterest(imageAnalysis.detected.symbol),
+        fetchBinanceSpotData(defaultSymbol),
+        fetchBinanceFundingRate(defaultSymbol),
+        fetchBinanceOpenInterest(defaultSymbol),
       ]
     )
 
-    // Step 3: Generate intelligent trading decision (AI retrieves sentiment & macro events)
+    // Step 2: AI image analysis (including technical indicators)
+    const imageAnalysis = await analyzeImageWithAI(image)
+
+    // Step 3: Validate Symbol is BTC
+    const detectedSymbol = imageAnalysis.detected.symbol.toUpperCase()
+    if (!detectedSymbol.includes('BTC')) {
+      throw new Error(`Currently only BTC market analysis is supported. Detected: ${detectedSymbol}`)
+    }
+
+    // Step 4: Generate intelligent trading decision (AI retrieves sentiment & macro events)
     const decision = await generateIntelligentDecision({
       imageAnalysis,
       realtimeData,
@@ -59,29 +67,29 @@ async function analyzeImageWithAI(
 这是一张 BTC 日线图，请识别并分析图中的所有信息：
 
 【必须识别的信息】
-1. 交易对（如 BTC/USDT）
-2. 时间周期（如 1H, 4H, 1D）
+1. 交易对(如 BTC/USDT)
+2. 时间周期(如 1H, 4H, 1D)
 3. 当前价格区间
 
 【技术指标识别】（如果图中存在）
-4. MACD 指标状态（金叉/死叉/趋势）
-5. RSI 指标值和状态（超买/超卖/中性）
-6. 布林带位置（价格在上轨/中轨/下轨，是否收窄）
-7. 成交量趋势（放量/缩量/异常）
+4. MACD 指标状态(金叉/死叉/趋势)
+5. RSI 指标值和状态(超买/超卖/中性)
+6. 布林带位置(价格在上轨/中轨/下轨，是否收窄)
+7. 成交量趋势(放量/缩量/异常)
 
 【技术分析】
-8. 整体趋势判断（上涨/下跌/震荡）
+8. 整体趋势判断(上涨/下跌/震荡)
 9. 关键支撑位和压力位
-10. 明显的技术形态（三角形、双顶、头肩等）
-11. 市场状态（突破/回调/盘整）
+10. 明显的技术形态(三角形、双顶、头肩等)
+11. 市场状态(突破/回调/盘整)
 12. 波动率水平
 
-严格按照以下JSON格式输出：
+严格按照以下 JSON 格式输出：
 {
   "detected": {
     "symbol": "BTCUSDT",
     "timeframe": "1D",
-    "priceRange": "95000-105000"
+    "priceRange": "$9,5000 - $10,5000"
   },
   "analysis": {
     "trend": "up",
@@ -103,8 +111,8 @@ async function analyzeImageWithAI(
         "anomaly": false
       }
     },
-    "support": ["95000附近", "92000附近"],
-    "resistance": ["105000附近", "110000附近"],
+    "support": ["$9,5000 附近", "$9,2000 附近"],
+    "resistance": ["$10,5000 附近", "$11,0000 附近"],
     "pattern": "ascending_triangle",
     "marketState": "breakout",
     "volatility": "medium",
@@ -363,12 +371,12 @@ ${JSON.stringify(imageAnalysis, null, 2)}
 【实时现货市场数据】
 交易对: ${imageAnalysis.detected.symbol}
 当前价格: $${realtimeData.currentPrice.toLocaleString()}
-24h涨跌: ${realtimeData.priceChange24h}%
-24h成交量: ${realtimeData.volume24h || "N/A"}
+24h 涨跌: ${realtimeData.priceChange24h}%
+24h 成交量: ${realtimeData.volume24h || "N/A"}
 
 【合约市场数据 - 真实数据】
 资金费率: ${(fundingRateData.currentRate * 100).toFixed(4)}% (当前)
-平均资金费率: ${(avgFundingRate * 100).toFixed(4)}% (最近8小时平均)
+平均资金费率: ${(avgFundingRate * 100).toFixed(4)}% (最近 8 小时平均)
 资金费率趋势: ${fundingRateTrend}
 市场多空偏好: ${marketSentiment}
 持仓量: ${openInterestData.openInterest.toLocaleString()} ${imageAnalysis.detected.symbol.replace(
@@ -380,20 +388,20 @@ ${JSON.stringify(imageAnalysis, null, 2)}
 【资金费率解读】
 - 正值且上升：多头需付费给空头，市场偏多，可能存在过热风险
 - 负值且下降：空头需付费给多头，市场偏空，可能存在超卖机会
-- 接近0：市场多空均衡
+- 接近 0: 市场多空均衡
 
 ---
 
 **请你完成以下任务：**
 
 1. **检索下周宏观经济事件** (${currentDate} 至 ${nextWeekDate})
-   - 美国重要经济数据发布（CPI、PPI、就业数据、GDP等）
+   - 美国重要经济数据发布(CPI、PPI、就业数据、GDP 等)
    - 美联储官员讲话或会议
-   - BTC/加密货币相关重大事件（ETF资金流报告、监管政策等）
+   - BTC 等加密货币相关重大事件(ETF 资金流报告、监管政策等)
    - 根据你的知识库和当前时间推断可能发生的事件
 
 2. **分析市场情绪**
-   - 基于资金费率判断当前市场情绪（多头/空头倾向）
+   - 基于资金费率判断当前市场情绪(多头/空头倾向)
    - 结合持仓量变化判断市场参与度
    - 考虑社交媒体和加密社区的一般情绪趋势
    - 评估市场恐慌/贪婪程度
@@ -403,21 +411,21 @@ ${JSON.stringify(imageAnalysis, null, 2)}
    - 提供现货、合约、期权三个维度的操作建议
    - 所有价格建议必须基于当前实时价格 $${realtimeData.currentPrice.toLocaleString()}
 
-严格按照以下JSON格式输出：
+严格按照以下 JSON 格式输出：
 {
   "macroEvents": [
     {
       "date": "2024-12-21",
-      "event": "美国11月CPI数据公布",
+      "event": "美国 11 月 CPI 数据公布",
       "importance": "high",
-      "expectedImpact": "若CPI超预期，美联储可能维持高利率，对BTC构成压力"
+      "expectedImpact": "若 CPI 超预期，美联储可能维持高利率，对 BTC 构成压力"
     }
   ],
   "probability": {
     "bullish": 55,
     "bearish": 25,
     "neutral": 20,
-    "reasoning": "技术面：上升趋势+MACD金叉(30%)；资金面：资金费率${marketSentiment}+持仓量适中(25%)；情绪面：市场情绪${marketSentiment}(15%)；宏观面：下周CPI数据不确定性(30%)。综合判断上涨概率略高但需警惕宏观风险。"
+    "reasoning": "技术面：上升趋势 + MACD 金叉(30%)；资金面：资金费率 ${marketSentiment} + 持仓量适中(25%)；情绪面：市场情绪 ${marketSentiment}(15%)；宏观面：下周 CPI 数据不确定性(30%)。综合判断上涨概率略高但需警惕宏观风险。"
   },
   "spot": {
     "action": "分批建仓/持有/减仓",

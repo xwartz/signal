@@ -108,7 +108,7 @@ export function ChatInterface({ activeAnalysis, onStartAnalysis }: ChatInterface
 
     try {
       // Step 1: Start analyzing chart image
-      await new Promise(resolve => setTimeout(resolve, 500))
+      await new Promise(resolve => setTimeout(resolve, 800))
 
       // Step 2: Call API (this is the real work)
       setAnalysisSteps(prev => prev.map((step, idx) => {
@@ -121,21 +121,21 @@ export function ChatInterface({ activeAnalysis, onStartAnalysis }: ChatInterface
       const dataPromise = analyzeImage(imageToAnalyze)
 
       // Step 3: While waiting for API, show progress through remaining steps
-      await new Promise(resolve => setTimeout(resolve, 800))
+      await new Promise(resolve => setTimeout(resolve, 2000))
       setAnalysisSteps(prev => prev.map((step, idx) => {
         if (idx <= 1) return { ...step, status: 'completed' }
         if (idx === 2) return { ...step, status: 'processing' }
         return step
       }))
 
-      await new Promise(resolve => setTimeout(resolve, 600))
+      await new Promise(resolve => setTimeout(resolve, 2500))
       setAnalysisSteps(prev => prev.map((step, idx) => {
         if (idx <= 2) return { ...step, status: 'completed' }
         if (idx === 3) return { ...step, status: 'processing' }
         return step
       }))
 
-      await new Promise(resolve => setTimeout(resolve, 500))
+      await new Promise(resolve => setTimeout(resolve, 2500))
       setAnalysisSteps(prev => prev.map((step, idx) => {
         if (idx <= 3) return { ...step, status: 'completed' }
         if (idx === 4) return { ...step, status: 'processing' }
@@ -147,7 +147,7 @@ export function ChatInterface({ activeAnalysis, onStartAnalysis }: ChatInterface
 
       // Step 5: Complete
       setAnalysisSteps(prev => prev.map(step => ({ ...step, status: 'completed' })))
-      await new Promise(resolve => setTimeout(resolve, 300))
+      await new Promise(resolve => setTimeout(resolve, 1000))
 
       onStartAnalysis(data, imageToAnalyze)
       setImage('') // Clear image after successful analysis
@@ -271,47 +271,49 @@ export function ChatInterface({ activeAnalysis, onStartAnalysis }: ChatInterface
       </div>
 
       {/* Input Area */}
-      <div className="border-t border-border bg-card">
-        <div className="max-w-4xl mx-auto px-6 py-4">
-          <div
-            className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
-              isDragging
-                ? 'border-primary bg-primary/5'
-                : 'border-border hover:border-primary/50'
-            }`}
-            onDrop={handleDrop}
-            onDragOver={(e) => {
-              e.preventDefault()
-              setIsDragging(true)
-            }}
-            onDragLeave={() => setIsDragging(false)}
-            onPaste={handlePaste}
-            tabIndex={0}
-          >
-            <svg className="mx-auto h-12 w-12 text-muted-foreground mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <p className="text-sm text-muted-foreground mb-3">
-              Drag and drop your chart here, or click to browse
-            </p>
-            <label className="inline-block">
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleFileInput}
-                className="hidden"
-                disabled={loading}
-              />
-              <span className="btn-primary cursor-pointer inline-block text-sm">
-                Upload Chart
-              </span>
-            </label>
-            <p className="text-xs text-muted-foreground mt-3">
-              Supports: PNG, JPG, JPEG • Max 5MB • Analysis starts automatically
-            </p>
+      {(!activeAnalysis && !loading) && (
+        <div className="border-t border-border bg-card">
+          <div className="max-w-4xl mx-auto px-6 py-4">
+            <div
+              className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
+                isDragging
+                  ? 'border-primary bg-primary/5'
+                  : 'border-border hover:border-primary/50'
+              }`}
+              onDrop={handleDrop}
+              onDragOver={(e) => {
+                e.preventDefault()
+                setIsDragging(true)
+              }}
+              onDragLeave={() => setIsDragging(false)}
+              onPaste={handlePaste}
+              tabIndex={0}
+            >
+              <svg className="mx-auto h-12 w-12 text-muted-foreground mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <p className="text-sm text-muted-foreground mb-3">
+                Drag and drop your chart here, or click to browse
+              </p>
+              <label className="inline-block">
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileInput}
+                  className="hidden"
+                  disabled={loading}
+                />
+                <span className="btn-primary cursor-pointer inline-block text-sm">
+                  Upload Chart
+                </span>
+              </label>
+              <p className="text-xs text-muted-foreground mt-3">
+                Supports: PNG, JPG, JPEG • Max 5MB • Analysis starts automatically
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
