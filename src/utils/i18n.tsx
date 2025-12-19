@@ -9,13 +9,6 @@ const translations = {
     subtitle: 'AI-Powered Crypto Trading Assistant',
     newAnalysis: 'New Analysis',
 
-    // Intro
-    introTitle: 'Professional Trading Analysis',
-    introDescription: 'Upload your chart screenshot, and our multimodal AI will automatically analyze technical patterns, combine with macro scenarios, and generate comprehensive trading recommendations for spot, futures, and options.',
-    featureImageRecognition: 'Image Recognition',
-    featureRealtimeData: 'Real-time Data',
-    featureMultiStrategy: 'Multi-Strategy',
-
     // Upload
     uploadTitle: 'Upload Chart',
     uploadDrop: 'Drop your chart here',
@@ -142,13 +135,6 @@ const translations = {
     title: 'K-Snap',
     subtitle: 'AI 加密货币交易决策系统',
     newAnalysis: '新分析',
-
-    // Intro
-    introTitle: '专业交易分析',
-    introDescription: '上传K线截图，多模态AI自动识别技术形态，结合宏观场景，生成现货、合约、期权的综合交易建议。',
-    featureImageRecognition: '图像识别',
-    featureRealtimeData: '实时数据',
-    featureMultiStrategy: '多策略建议',
 
     // Upload
     uploadTitle: '上传图表',
