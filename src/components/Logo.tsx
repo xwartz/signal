@@ -1,20 +1,12 @@
 import { cn } from "../lib/utils";
 
 const LogoIcon = () => (
-    <div className="bg-primary text-primary-foreground p-1.5 rounded-md">
-        <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            xmlns="http://www.w3.org/2000/svg"
-            >
-            <path d="M12 2l4 4-4 4-4 4-4-4 4-4zM2 12l4 4-4 4-4-4 4-4zM12 12l4 4-4 4-4-4 4-4zM16 6l-4 4-4-4" />
-        </svg>
+    <div className="relative w-8 h-8">
+        <img
+            src="/logo.png"
+            alt="Logo"
+            className="w-full h-full object-contain"
+        />
     </div>
 );
 

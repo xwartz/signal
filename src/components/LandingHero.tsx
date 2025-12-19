@@ -1,6 +1,7 @@
 import { useI18n } from '../utils/i18n'
 import Logo from './Logo'
 import { ArrowRight } from 'lucide-react'
+import { ThemeToggle } from './ThemeToggle'
 
 interface LandingHeroProps {
   onStart: () => void
@@ -18,7 +19,7 @@ export function LandingHero({ onStart }: LandingHeroProps) {
              <div className="flex items-center gap-2">
                  <Logo />
              </div>
-             {/* Add a placeholder or remove if not needed, ref had ThemeToggle here */}
+             <ThemeToggle />
          </header>
 
          <main className="flex flex-1 flex-col items-center justify-center text-center p-4">
@@ -39,6 +40,14 @@ export function LandingHero({ onStart }: LandingHeroProps) {
                     >
                         {t('heroButton')} <ArrowRight className="ml-2 h-5 w-5" />
                     </button>
+                </div>
+
+                <div className="mt-16 w-full max-w-5xl px-4 mx-auto animate-fade-in-up delay-200">
+                    <img
+                        src="/trading.gif"
+                        alt="Trading Analysis"
+                        className="rounded-xl shadow-2xl shadow-primary/10 w-full h-auto border border-border/50"
+                    />
                 </div>
             </div>
          </main>
