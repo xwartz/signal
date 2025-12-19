@@ -41,14 +41,14 @@ export function LandingHero({ onStart }: LandingHeroProps) {
                         {t('heroButton')} <ArrowRight className="ml-2 h-5 w-5" />
                     </button>
                 </div>
+            </div>
 
-                <div className="mt-16 w-full max-w-5xl px-4 mx-auto animate-fade-in-up delay-200">
-                    <img
-                        src="/trading.gif"
-                        alt="Trading Analysis"
-                        className="rounded-xl shadow-2xl shadow-primary/10 w-full h-auto border border-border/50"
-                    />
-                </div>
+            <div className="mt-16 w-full max-w-7xl px-4 mx-auto animate-fade-in-up delay-200">
+                <img
+                    src="/hero-cover.png"
+                    alt="Trading AI Analysis"
+                    className="rounded-xl shadow-2xl shadow-primary/10 w-full h-auto border border-border/50"
+                />
             </div>
          </main>
       </div>

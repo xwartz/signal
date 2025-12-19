@@ -5,7 +5,7 @@ export type Language = 'en' | 'zh'
 const translations = {
   en: {
     // Header
-    title: 'Blue AI',
+    title: 'K-Snap',
     subtitle: 'AI-Powered Crypto Trading Assistant',
     newAnalysis: 'New Analysis',
 
@@ -139,7 +139,7 @@ const translations = {
   },
   zh: {
     // Header
-    title: '布噜 AI',
+    title: 'K-Snap',
     subtitle: 'AI 加密货币交易决策系统',
     newAnalysis: '新分析',
 
@@ -237,7 +237,7 @@ const translations = {
 
     // Landing Hero
     heroTitle: '截图即分析，秒懂行情走势',
-    heroSubtitle: '您的口袋量化分析师 —— 布噜 AI',
+    heroSubtitle: '您的口袋量化分析师 —— K-Snap',
     heroDescription: '只需上传一张 K 线截图，AI 即刻为您解码主力动向，秒级生成专业买卖策略。让每一次交易都有据可依。',
     heroButton: '立即分析',
     heroDisclaimer: '⚠️ 仅供学习参考，不构成财务建议。',
@@ -257,10 +257,10 @@ const translations = {
     apiKeySet: '设置 Key',
 
     // Chat Interface
-    chatHeaderTitle: '布噜 AI',
+    chatHeaderTitle: 'K-Snap',
     chatHeaderSubtitle: '您的口袋量化分析师',
-    chatWelcomeTitle: '布噜 AI',
-    chatWelcomeDesc: '👋 嗨，我是布噜 AI！\n\n无论是现货、期货还是永续合约，行情看不准？交给我来判断。\n\n📸 直接发送 K 线图截图，我将即刻为您分析盘面，寻找最佳交易机会！',
+    chatWelcomeTitle: 'K-Snap',
+    chatWelcomeDesc: '👋 嗨，我是 K-Snap！\n\n无论是现货、期货还是永续合约，行情看不准？交给我来判断。\n\n📸 直接发送 K 线图截图，我将即刻为您分析盘面，寻找最佳交易机会！',
     chatDropTitle: '拖放图表到这里，或点击浏览',
     chatUploadButton: '上传图表',
     chatSupports: '支持: PNG, JPG, JPEG • 最大 5MB • 自动开始分析',
