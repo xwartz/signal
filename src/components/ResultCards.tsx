@@ -432,30 +432,18 @@ export function ResultCards({ result }: ResultCardsProps) {
                   : "中性"}
               </span>
             </div>
-            <div className="space-y-3 flex-grow">
-              <div className="grid grid-cols-2 gap-2 text-sm">
-                <div>
-                  <span className="text-muted-foreground block text-xs">
-                    入场
-                  </span>
-                  <span className="font-medium text-foreground">{decision.futures.entry}</span>
-                </div>
-                <div>
-                  <span className="text-muted-foreground block text-xs">
-                    止损
-                  </span>
-                  <span className="font-medium text-foreground">
-                    {decision.futures.stopLoss}
-                  </span>
-                </div>
+            <div className="space-y-2 flex-grow text-sm">
+              <div>
+                <span className="text-muted-foreground text-xs">入场</span>
+                <p className="font-medium text-foreground break-words">{decision.futures.entry}</p>
               </div>
-              <div className="text-sm">
-                <span className="text-muted-foreground block text-xs">
-                  盈亏比
-                </span>
-                <span className="font-medium text-foreground">
-                  {decision.futures.riskReward}
-                </span>
+              <div>
+                <span className="text-muted-foreground text-xs">止损</span>
+                <p className="font-medium text-foreground break-words">{decision.futures.stopLoss}</p>
+              </div>
+              <div>
+                <span className="text-muted-foreground text-xs">盈亏比</span>
+                <p className="font-medium text-foreground">{decision.futures.riskReward}</p>
               </div>
             </div>
           </div>
