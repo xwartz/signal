@@ -150,3 +150,13 @@ export interface Binance24hrTicker {
   lastPrice: string
   volume: string
 }
+
+// 历史记录项
+export interface HistoryItem {
+  id: string
+  title: string
+  timestamp: number
+  result: AnalyzeResponse
+  imagePreview: string
+}
+

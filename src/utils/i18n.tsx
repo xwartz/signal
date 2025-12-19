@@ -16,7 +16,7 @@ const translations = {
     featureMultiStrategy: 'Multi-Strategy',
 
     // Upload
-    uploadTitle: 'Step 1: Upload Chart',
+    uploadTitle: 'Upload Chart',
     uploadDrop: 'Drop your chart here',
     uploadBrowse: 'or click to browse / paste screenshot (Ctrl+V / Cmd+V)',
     uploadFormat: 'PNG, JPG up to 5MB',
@@ -25,7 +25,7 @@ const translations = {
     uploadAlert: 'Please upload a chart first',
 
     // Macro Selector
-    macroTitle: 'Step 2: Analysis Configuration',
+    macroTitle: 'Analysis Configuration',
     macroPeriod: 'Analysis Period',
     macroScenarios: 'Macro Scenarios (Optional)',
     period1w: '1 Week',
@@ -43,7 +43,7 @@ const translations = {
     errorTitle: 'Analysis Failed',
 
     // Results
-    resultsTitle: 'Step 3: Analysis Results',
+    resultsTitle: 'Analysis Results',
     detection: 'Detection',
     confidence: 'Confidence',
     technicalAnalysis: 'Technical Analysis',
@@ -100,7 +100,7 @@ const translations = {
     featureMultiStrategy: '多策略建议',
 
     // Upload
-    uploadTitle: '步骤 1: 上传图表',
+    uploadTitle: '上传图表',
     uploadDrop: '拖放图片到这里',
     uploadBrowse: '或点击选择文件 / 粘贴截图 (Ctrl+V / Cmd+V)',
     uploadFormat: 'PNG, JPG 最大 5MB',
@@ -109,7 +109,7 @@ const translations = {
     uploadAlert: '请先上传K线截图',
 
     // Macro Selector
-    macroTitle: '步骤 2: 分析配置',
+    macroTitle: '分析配置',
     macroPeriod: '分析周期',
     macroScenarios: '宏观场景（可选）',
     period1w: '1周',
@@ -127,7 +127,7 @@ const translations = {
     errorTitle: '分析失败',
 
     // Results
-    resultsTitle: '步骤 3: 分析结果',
+    resultsTitle: '分析结果',
     detection: '识别结果',
     confidence: '置信度',
     technicalAnalysis: '技术分析',
