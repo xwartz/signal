@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { cn } from "../lib/utils"
 import { useI18n } from '../utils/i18n'
 
@@ -15,11 +16,11 @@ const LogoIcon = () => (
 export default function Logo({ className }: { className?: string }) {
   const { t } = useI18n()
   return (
-    <div className={cn("flex items-center gap-2", className)}>
+    <Link to="/" className={cn("flex items-center gap-2 hover:opacity-80 transition-opacity", className)}>
         <LogoIcon />
       <h2 className="text-lg font-semibold tracking-tight text-foreground group-data-[collapsible=icon]:hidden">
         {t('title')}
       </h2>
-    </div>
+    </Link>
   );
 }

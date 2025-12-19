@@ -15,7 +15,7 @@ export function ResultCards({ result }: ResultCardsProps) {
         {t("resultsTitle")}
       </h2>
 
-      {/* AI识别结果 */}
+      {/* AI 识别结果 */}
       <div className="card">
         <h3 className="text-base font-semibold mb-3 text-gray-800 dark:text-gray-200">
           {t("detection")}
