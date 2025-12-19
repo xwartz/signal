@@ -11,7 +11,7 @@ export function ResultCards({ result }: ResultCardsProps) {
 
   return (
     <div className="space-y-4 md:space-y-6">
-      <h2 className="text-lg font-semibold mb-3 md:mb-4 text-gray-900 dark:text-gray-100">
+      <h2 className="text-lg font-semibold mt-1 mb-3 md:mb-4 text-gray-900 dark:text-gray-100">
         {t("resultsTitle")}
       </h2>
 
