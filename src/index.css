@@ -4,67 +4,84 @@
 
 @layer base {
   :root {
-      --background: 0 0% 96.1%;
-      --foreground: 0 0% 3.9%;
+    --background: 195 53% 96%;
+      /* Soft Teal Light */
+      --foreground: 195 20% 25%;
       --card: 0 0% 100%;
-      --card-foreground: 0 0% 3.9%;
+    --card-foreground: 195 20% 25%;
       --popover: 0 0% 100%;
-      --popover-foreground: 0 0% 3.9%;
-      --primary: 195 47% 55%;
+    --popover-foreground: 195 20% 25%;
+      --primary: 207 90% 54%;
+      /* Blue */
       --primary-foreground: 0 0% 100%;
-      --secondary: 0 0% 96.1%;
-      --secondary-foreground: 0 0% 9%;
-      --muted: 0 0% 96.1%;
-      --muted-foreground: 0 0% 45.1%;
-      --accent: 207 90% 61%;
-      --accent-foreground: 0 0% 98%;
+    --secondary: 195 53% 90%;
+      --secondary-foreground: 195 20% 25%;
+      --muted: 195 53% 94%;
+      --muted-foreground: 195 10% 45%;
+      --accent: 207 90% 54%;
+      /* Blue */
+      --accent-foreground: 0 0% 100%;
       --destructive: 0 84.2% 60.2%;
       --destructive-foreground: 0 0% 98%;
-      --border: 0 0% 89.8%;
-      --input: 0 0% 89.8%;
-      --ring: 207 90% 61%;
+    --border: 195 20% 88%;
+      --input: 195 20% 88%;
+      --ring: 207 90% 54%;
       --radius: 0.5rem;
-      --sidebar-background: 0 0% 100%;
-      --sidebar-foreground: 240 5.3% 26.1%;
-      --sidebar-primary: 195 47% 55%;
+    --chart-1: 207 90% 54%;
+      --chart-2: 195 53% 60%;
+      --chart-3: 207 70% 65%;
+      --chart-4: 195 40% 70%;
+      --chart-5: 195 30% 55%;
+      --sidebar-background: 195 30% 95%;
+      --sidebar-foreground: 195 20% 25%;
+      --sidebar-primary: 207 90% 54%;
       --sidebar-primary-foreground: 0 0% 100%;
-      --sidebar-accent: 0 0% 96.1%;
-      --sidebar-accent-foreground: 0 0% 9%;
-      --sidebar-border: 0 0% 89.8%;
-      --sidebar-ring: 207 90% 61%;
+    --sidebar-accent: 0 0% 100%;
+      --sidebar-accent-foreground: 195 20% 15%;
+      --sidebar-border: 195 20% 88%;
+      --sidebar-ring: 207 90% 54%;
     }
-  
+    
     .dark {
-      --background: 0 0% 13%;
-      --foreground: 0 0% 98%;
-      --card: 0 0% 15%;
-      --card-foreground: 0 0% 98%;
-      --popover: 0 0% 15%;
-      --popover-foreground: 0 0% 98%;
-      --primary: 195 47% 55%;
+    --background: 195 20% 12%;
+      /* Dark Gray */
+      --foreground: 195 20% 98%;
+      --card: 195 20% 15%;
+      --card-foreground: 195 20% 98%;
+      --popover: 195 20% 15%;
+      --popover-foreground: 195 20% 98%;
+      --primary: 207 90% 54%;
+      /* Blue */
       --primary-foreground: 0 0% 100%;
-      --secondary: 0 0% 20%;
-      --secondary-foreground: 0 0% 98%;
-      --muted: 0 0% 20%;
-      --muted-foreground: 0 0% 63.9%;
-      --accent: 207 90% 61%;
-      --accent-foreground: 0 0% 98%;
+    --secondary: 195 20% 20%;
+      --secondary-foreground: 195 20% 98%;
+      --muted: 195 20% 22%;
+      --muted-foreground: 195 10% 65%;
+      --accent: 207 90% 54%;
+      /* Blue */
+      --accent-foreground: 0 0% 100%;
       --destructive: 0 62.8% 30.6%;
       --destructive-foreground: 0 0% 98%;
-      --border: 0 0% 20%;
-      --input: 0 0% 20%;
-      --ring: 207 90% 61%;
-      --sidebar-background: 0 0% 10%;
-      --sidebar-foreground: 0 0% 96.1%;
-      --sidebar-primary: 195 47% 55%;
+    --border: 195 20% 25%;
+      --input: 195 20% 25%;
+      --ring: 207 90% 54%;
+      --chart-1: 207 90% 54%;
+      --chart-2: 195 53% 60%;
+      --chart-3: 207 70% 65%;
+      --chart-4: 195 40% 70%;
+      --chart-5: 195 30% 55%;
+      --sidebar-background: 195 20% 14%;
+      --sidebar-foreground: 195 20% 96%;
+      --sidebar-primary: 207 90% 54%;
       --sidebar-primary-foreground: 0 0% 100%;
-      --sidebar-accent: 0 0% 15.9%;
-      --sidebar-accent-foreground: 0 0% 98%;
-      --sidebar-border: 0 0% 15.9%;
-      --sidebar-ring: 207 90% 61%;
+    --sidebar-accent: 195 20% 20%;
+      --sidebar-accent-foreground: 195 20% 96%;
+      /* Fixed contrast */
+      --sidebar-border: 195 20% 25%;
+      --sidebar-ring: 207 90% 54%;
     }
   }
-  
+
   @layer base {
     * {
       @apply border-border;
@@ -103,4 +120,10 @@
   .badge-neutral {
     @apply bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200;
   }
+}
+
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, hsl(var(--border) / 0.3) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.3) 1px, transparent 1px);
 }

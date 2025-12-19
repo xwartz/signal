@@ -3,7 +3,9 @@ import { ThemeToggle } from './ThemeToggle'
 import { ApiKeySettings } from './ApiKeySettings'
 import { LanguageToggle } from './LanguageToggle'
 import { Message } from './Message'
+import Logo from './Logo'
 import { analyzeImage } from '../utils/analyzer'
+import { Bot } from 'lucide-react'
 import { useI18n } from '../utils/i18n'
 import type { HistoryItem, AnalyzeResponse } from '../types'
 
@@ -170,37 +172,34 @@ export function ChatInterface({ activeAnalysis, onStartAnalysis }: ChatInterface
       {/* Header */}
       <header className="bg-card border-b border-border shadow-sm">
         <div className="px-6 py-4 flex items-center justify-between">
-          <div>
-            <h1 className="text-xl font-bold text-foreground">
-              {t('chatHeaderTitle')}
-            </h1>
-            <p className="text-sm text-muted-foreground mt-0.5">
-              {t('chatHeaderSubtitle')}
-            </p>
-          </div>
-          <div className="flex items-center gap-3">
-            <ApiKeySettings />
-            <LanguageToggle />
-            <ThemeToggle />
-          </div>
+           <div>
+            <div className="flex items-center gap-2">
+                 <Logo />
+             </div>
+           </div>
+           <div className="flex items-center gap-3">
+             <ApiKeySettings />
+             <LanguageToggle />
+             <ThemeToggle />
+           </div>
         </div>
       </header>
 
       {/* Messages Area */}
       <div className="flex-1 overflow-y-auto px-6 py-6">
         {!activeAnalysis && !image && !loading && (
-          <div className="max-w-3xl mx-auto text-center py-12">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-              <svg className="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <h2 className="text-2xl font-bold mb-2 text-foreground">
-              {t('chatWelcomeTitle')}
-            </h2>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              {t('chatWelcomeDesc')}
-            </p>
+          <div className="flex flex-col items-center justify-center h-full">
+               <div className="flex items-start gap-4 p-4 max-w-3xl mx-auto w-full">
+                    <div className="p-2 bg-primary/10 rounded-full flex-shrink-0">
+                         <Bot className="w-6 h-6 text-primary" />
+                    </div>
+                    <div className="flex-1 space-y-2">
+                        <p className="font-semibold text-foreground">{t('chatWelcomeTitle')}</p>
+                        <div className="p-4 rounded-lg bg-muted/80 leading-relaxed text-left text-foreground whitespace-pre-wrap">
+                          {t('chatWelcomeDesc')}
+                        </div>
+                    </div>
+                </div>
           </div>
         )}
 

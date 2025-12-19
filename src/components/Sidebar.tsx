@@ -1,4 +1,5 @@
 import { useI18n } from '../utils/i18n'
+import Logo from './Logo'
 import type { HistoryItem } from '../types'
 
 interface SidebarProps {
@@ -23,16 +24,7 @@ export function Sidebar({
       {/* Header */}
       <div className="p-4 border-b border-sidebar-border">
         {!isCollapsed && (
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <svg className="w-5 h-5 text-primary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <span className="font-bold text-lg text-sidebar-foreground">
-              {t('title').split(' ')[0]}
-            </span>
-          </div>
+            <Logo />
         )}
       </div>
 

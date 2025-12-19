@@ -1,5 +1,6 @@
 import type { AnalyzeResponse } from '../types'
 import { ResultCards } from './ResultCards'
+import { Bot, User } from 'lucide-react'
 
 interface MessageProps {
   role: 'user' | 'assistant'
@@ -14,8 +15,10 @@ export function Message({ role, content, imageUrl, result }: MessageProps) {
       <div className="flex justify-start mb-6">
         <div className="max-w-[85%]">
           <div className="flex items-start gap-3">
-            {/* Spacer to align with assistant avatar */}
-            <div className="w-8 h-8 flex-shrink-0" />
+            {/* User Avatar */}
+            <div className="p-2 bg-accent/10 rounded-full flex-shrink-0">
+              <User className="w-6 h-6 text-accent" />
+            </div>
             <div className="flex-1">
               {imageUrl && (
                 <div className="bg-card border border-border rounded-lg p-3 shadow-sm">
@@ -43,10 +46,8 @@ export function Message({ role, content, imageUrl, result }: MessageProps) {
     <div className="flex justify-start mb-6">
       <div className="max-w-[85%]">
         <div className="flex items-start gap-3">
-          <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
-            <svg className="w-5 h-5 text-primary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
+          <div className="p-2 bg-primary/10 rounded-full flex-shrink-0">
+            <Bot className="w-6 h-6 text-primary" />
           </div>
           <div className="flex-1">
             {content && (

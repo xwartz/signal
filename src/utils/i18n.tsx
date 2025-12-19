@@ -5,7 +5,7 @@ export type Language = 'en' | 'zh'
 const translations = {
   en: {
     // Header
-    title: 'Signal',
+    title: 'Blue AI',
     subtitle: 'AI-Powered Crypto Trading Assistant',
     newAnalysis: 'New Analysis',
 
@@ -139,7 +139,7 @@ const translations = {
   },
   zh: {
     // Header
-    title: 'Signal',
+    title: '布噜 AI',
     subtitle: 'AI 加密货币交易决策系统',
     newAnalysis: '新分析',
 
@@ -236,10 +236,10 @@ const translations = {
     uploadAlertSize: '图片大小不能超过5MB',
 
     // Landing Hero
-    heroTitle: '从图表到洞察',
-    heroSubtitle: 'MarketSage AI',
-    heroDescription: '您的 AI 交易助手。上传任意加密货币 K 线图，几秒钟内获得专业级投资分析。',
-    heroButton: '立即开始',
+    heroTitle: '截图即分析，秒懂行情走势',
+    heroSubtitle: '您的口袋量化分析师 —— 布噜 AI',
+    heroDescription: '只需上传一张 K 线截图，AI 即刻为您解码主力动向，秒级生成专业买卖策略。让每一次交易都有据可依。',
+    heroButton: '立即分析',
     heroDisclaimer: '⚠️ 仅供学习参考，不构成财务建议。',
 
     // API Key Settings
@@ -257,10 +257,10 @@ const translations = {
     apiKeySet: '设置 Key',
 
     // Chat Interface
-    chatHeaderTitle: 'MarketSage AI',
-    chatHeaderSubtitle: 'AI 驱动的专业加密货币交易分析',
-    chatWelcomeTitle: '你好，我是 MarketSage AI',
-    chatWelcomeDesc: '无论是现货、合约还是期权，只要给我看图表，我就能通过 AI 进行分析。请上传您的 K 线截图以开始。',
+    chatHeaderTitle: '布噜 AI',
+    chatHeaderSubtitle: '您的口袋量化分析师',
+    chatWelcomeTitle: '布噜 AI',
+    chatWelcomeDesc: '👋 嗨，我是布噜 AI！\n\n无论是现货、期货还是永续合约，行情看不准？交给我来判断。\n\n📸 直接发送 K 线图截图，我将即刻为您分析盘面，寻找最佳交易机会！',
     chatDropTitle: '拖放图表到这里，或点击浏览',
     chatUploadButton: '上传图表',
     chatSupports: '支持: PNG, JPG, JPEG • 最大 5MB • 自动开始分析',

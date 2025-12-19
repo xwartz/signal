@@ -1,4 +1,4 @@
-# Signal - AI Crypto Trading Assistant
+# AI Crypto Trading Assistant
 
 > 基于多模态AI的加密货币交易决策系统 | Hackathon Project
 
